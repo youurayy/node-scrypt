@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [6.0.6] - 2018-06-18
+### Fixed
+- Remove unnecessary files
+
 ## [6.0.5] - 2018-06-18
 ### Fixed
 - Fix scrypt update
