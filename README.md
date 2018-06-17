@@ -1,7 +1,7 @@
 # Scrypt For Node
 
-[![Build Status](https://travis-ci.org/barrysteyn/node-scrypt.png?branch=master)](https://travis-ci.org/barrysteyn/node-scrypt)
-[![npm version](https://badge.fury.io/js/scrypt.svg)](http://badge.fury.io/js/scrypt)
+[![Build Status](https://travis-ci.org/ml1nk/node-scrypt.svg?branch=master)](https://travis-ci.org/ml1nk/node-scrypt)
+[![npm version](https://badge.fury.io/js/%40mlink%2Fscrypt.svg)](https://badge.fury.io/js/%40mlink%2Fscrypt)
 
 Scrypt for Node/IO is a native node/io C++ wrapper for Colin Percival's
 [scrypt](https://www.tarsnap.com/scrypt.html) cryptographic hash utility.
@@ -81,11 +81,11 @@ More information can be found here:
 
 ## Install From NPM
 
-    npm install scrypt
+    npm install @mlink/scrypt
 
 ## Install From Source
 
-    git clone https://github.com/barrysteyn/node-scrypt.git
+    git clone https://github.com/ml1nk/node-scrypt.git
     cd node-scrypt
     npm install
     node-gyp configure build
@@ -187,7 +187,7 @@ scrypt.params(0.1).then(function(result){
 ```JavaScript
 var scrypt = require("scrypt");
 var scryptParameters = scrypt.paramsSync(0.1);
-var key = new Buffer("this is a key"); //could also be a string
+var key = Buffer.from("this is a key"); //could also be a string
 
 //Synchronous example that will output in hexidecimal encoding
 var kdfResult = scrypt.kdfSync(key, scryptParameters); //should be wrapped in try catch, but leaving it out for brevity
@@ -218,7 +218,7 @@ scrypt.verifyKdfSync(kdfResult, "password"); // returns true
 scrypt.verifyKdfSync(kdfResult, "incorrect password"); // returns false
 
 //Asynchronous
-scrypt.verifyKdf(kdfResult, new Buffer("password"), function(err, result) {
+scrypt.verifyKdf(kdfResult, Buffer.from("password"), function(err, result) {
   //result will be true
 });
 
@@ -236,7 +236,7 @@ The [scrypt paper](http://www.tarsnap.com/scrypt/scrypt.pdf) lists four [test ve
 
 ```JavaScript
 var scrypt = require("scrypt");
-var key = new Buffer("");
+var key = Buffer.from("");
 
 //Synchronous
 var result = scrypt.hashSync(key,{"N":16,"r":1,"p":1},64,"");
@@ -257,7 +257,7 @@ scrypt.hash(key, {"N":16,"r":1,"p":1},64,"").then(function(result) {
 
 ```JavaScript
 var scrypt = require("scrypt");
-var salt = new Buffer("NaCl");
+var salt = Buffer.from("NaCl");
 
 //Synchronous
 var result = scrypt.hashSync("password", {"N":1024,"r":8,"p":16}, 64, salt);
@@ -272,8 +272,8 @@ scrypt.hash("password", {"N":1024,"r":8,"p":16},64,salt, function(err, result) {
 
 ```JavaScript
 var scrypt = require("scrypt");
-var key = new Buffer("pleaseletmein");
-var salt = new Buffer("SodiumChloride");
+var key = Buffer.from("pleaseletmein");
+var salt = Buffer.from("SodiumChloride");
 
 //Synchronous
 var result = scrypt.hashSync(key,{"N":16384,"r":8,"p":1},64,salt);

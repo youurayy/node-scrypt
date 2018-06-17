@@ -1,8 +1,8 @@
 {
-  "name": "scrypt",
+  "name": "@mlink/scrypt",
   "description": "The scrypt crypto library for NodeJS",
-  "version": "6.0.3",
-  "license": "zlib",
+  "version": "6.0.4",
+  "license": "Zlib",
   "keywords": [
     "scrypt",
     "password",
@@ -21,20 +21,26 @@
     "email": "barry.steyn@gmail.com",
     "url": "http://doctrina.org"
   },
+  "contributors": [
+    {
+      "name": "Marcel Link",
+      "email": "marcel.link@t-online.de"
+    }
+  ],
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/barrysteyn/node-scrypt.git"
+    "url": "https://github.com/ml1nk/node-scrypt.git"
   },
   "devDependencies": {
-    "mocha": "2.2.5",
-    "chai": "3.0.0",
-    "chai-as-promised": "^5.1.0"
+    "mocha": "5.2.0",
+    "chai": "4.1.2",
+    "chai-as-promised": "^7.1.1"
   },
   "dependencies": {
-    "nan": "^2.0.8"
+    "nan": "^2.10.0"
   },
   "licenses": [
     {
@@ -42,7 +48,7 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/barrysteyn/node-scrypt/issues"
+    "url": "https://github.com/ml1nk/node-scrypt/issues"
   },
   "scripts": {
     "preinstall": "node node-scrypt-preinstall.js",
