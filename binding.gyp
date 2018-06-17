@@ -76,6 +76,7 @@
       'conditions': [
         ['OS=="win"', { 'defines' : [ 'inline=__inline' ] }],
       ],
+      'cflags': ['-std=gnu11'],
       'dependencies': ['copied_files'],
     },
     {
