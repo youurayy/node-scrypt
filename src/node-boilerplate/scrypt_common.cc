@@ -89,13 +89,13 @@ namespace {
     unsigned int mask = -1,
                  base_error = (mask >> 16) & error,
                  sub_error = (((mask << 16) & error) >> 16);
-    std::string scrypt_err_description = InternalErrorDescr(base_error);
+    const char* scrypt_err_description = InternalErrorDescr(base_error);
 
     if (sub_error) {
-      scrypt_err_description += " - " + std::string(strerror(sub_error));
+      scrypt_err_description = (std::string(scrypt_err_description) + " - " + std::string(strerror(sub_error))).c_str();
     }
 
-    return scrypt_err_description.c_str();
+    return scrypt_err_description;
   }
 } /* end anonymous namespace */
 
