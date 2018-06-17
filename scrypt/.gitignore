@@ -1,0 +1,16 @@
+/*.a 
+*.o 
+*.deps/
+.deps/ 
+.dirstamp 
+aclocal.m4 
+config.aux/ 
+config.h 
+config.log 
+config.status 
+cpusupport-config.h 
+stamp-h1 
+Makefile 
+# Test infrastructure 
+# Standard out-of-tree build directory 
+build/ 
