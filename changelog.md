@@ -2,11 +2,18 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [6.0.3] - 2018-06-17
+## [6.0.5] - 2018-06-18
 ### Fixed
+- Fix scrypt update
+- Fix travis build
+
+## [6.0.4] - 2018-06-17
+### Changed
 - Update nan to 2.10.0
 - Update scrypt to 1.2.1
 - Replaced new Buffer (deprecated) with Buffer.from
+
+### Fixed
 - Fix broken error messages
 
 ## [6.0.2] - 2016-04-17
