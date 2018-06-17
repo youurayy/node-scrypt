@@ -281,7 +281,7 @@ describe("Scrypt Node Module Tests", function() {
       });
 
       it("Will throw a SyntaxError if no callback function is present", function() {
-        expect(function() {scrypt.kdf(new Buffer("password"), {N:1, r:1, p:1});})
+        expect(function() {scrypt.kdf(Buffer.from("password"), {N:1, r:1, p:1});})
           .to.throw(SyntaxError)
           .to.match(/^SyntaxError: No callback function present, and Promises are not available$/);
       })
@@ -301,7 +301,7 @@ describe("Scrypt Node Module Tests", function() {
 
     describe("Asynchronous functionality with correct arguments", function() {
       it("Will return a buffer object containing the KDF with a buffer input", function(done) {
-        scrypt.kdf(new Buffer("password"), {N:1, r:1, p:1}, function(err, result) {
+        scrypt.kdf(Buffer.from("password"), {N:1, r:1, p:1}, function(err, result) {
           expect(result)
             .to.be.an.instanceof(Buffer);
           expect(result)
@@ -316,7 +316,7 @@ describe("Scrypt Node Module Tests", function() {
     describe("Promise asynchronous functionality with correct arguments", function() {
       if (typeof Promise !== "undefined") {
         it("Will return a buffer object containing the KDF with a buffer input", function(done) {
-          scrypt.kdf(new Buffer("password"), {N:16, r:1, p:1}).then(function(result) {
+          scrypt.kdf(Buffer.from("password"), {N:16, r:1, p:1}).then(function(result) {
             expect(result)
               .to.be.an.instanceof(Buffer);
             expect(result)
@@ -350,7 +350,7 @@ describe("Scrypt Node Module Tests", function() {
         })
 
         it("Will throw a TypeError if the hash length is not an integer", function() {
-          expect(function(){scrypt.hashSync("hash something", {N:1, r:1, p:1}, 32.5, new Buffer("NaCl"))})
+          expect(function(){scrypt.hashSync("hash something", {N:1, r:1, p:1}, 32.5, Buffer.from("NaCl"))})
             .to.throw(TypeError)
             .to.match(/^TypeError: Hash length must be an integer$/);
 
@@ -420,7 +420,7 @@ describe("Scrypt Node Module Tests", function() {
         })
 
         it("Will throw a TypeError if the hash length is not an integer", function() {
-          expect(function(){scrypt.hash("hash something", {N:16, r:1, p:1}, 32.5, new Buffer("NaCl"), function(){})})
+          expect(function(){scrypt.hash("hash something", {N:16, r:1, p:1}, 32.5, Buffer.from("NaCl"), function(){})})
             .to.throw(TypeError)
             .to.match(/^TypeError: Hash length must be an integer$/);
 
@@ -617,13 +617,13 @@ describe("Scrypt Node Module Tests", function() {
         })
 
         it("Vector 2: Will produce an identical vector to scrypt paper", function() {
-          var result = scrypt.hashSync("password",{"N":10,"r":8,"p":16},64, new Buffer("NaCl"));
+          var result = scrypt.hashSync("password",{"N":10,"r":8,"p":16},64, Buffer.from("NaCl"));
           expect(result.toString("hex"))
             .to.equal("fdbabe1c9d3472007856e7190d01e9fe7c6ad7cbc8237830e77376634b3731622eaf30d92e22a3886ff109279d9830dac727afb94a83ee6d8360cbdfa2cc0640");
         })
 
         it("Vector 3: Will produce an identical vector to scrypt paper", function() {
-          var result = scrypt.hashSync(new Buffer("pleaseletmein"),{"N":14,"r":8,"p":1},64, "SodiumChloride");
+          var result = scrypt.hashSync(Buffer.from("pleaseletmein"),{"N":14,"r":8,"p":1},64, "SodiumChloride");
           expect(result.toString("hex"))
             .to.equal("7023bdcb3afd7348461c06cd81fd38ebfda8fbba904f8e3ea9b543f6545da1f2d5432955613f0fcf62d49705242a9af9e61e85dc0d651e40dfcf017b45575887");
         })
@@ -640,7 +640,7 @@ describe("Scrypt Node Module Tests", function() {
         });
 
         it("Vector 2: Will produce an identical vector to scrypt paper", function(done) {
-          scrypt.hash(new Buffer("password"),{"N":10,"r":8,"p":16},64, new Buffer("NaCl"), function(err, result) {
+          scrypt.hash(Buffer.from("password"),{"N":10,"r":8,"p":16},64, Buffer.from("NaCl"), function(err, result) {
             expect(result.toString("hex"))
               .to.equal("fdbabe1c9d3472007856e7190d01e9fe7c6ad7cbc8237830e77376634b3731622eaf30d92e22a3886ff109279d9830dac727afb94a83ee6d8360cbdfa2cc0640");
               expect(err)
@@ -684,7 +684,7 @@ describe("Scrypt Node Module Tests", function() {
         it("Will correctly verify hash as false if different keys are used for kdf and verify", function(){
           var key = "this is a key"
             , kdf = scrypt.kdfSync(key, {N:16, r:1, p:1})
-            , result = scrypt.verifyKdfSync(kdf, new Buffer("Another key"));
+            , result = scrypt.verifyKdfSync(kdf, Buffer.from("Another key"));
 
           expect(result)
             .to.be.a("boolean")
@@ -741,13 +741,13 @@ describe("Scrypt Node Module Tests", function() {
       var hash_length = Math.floor(Math.random() * 100) + 1; //Choose random number between 1 and 100
       describe("Synchronous", function() {
         it("Will be deterministic if salts are identical", function() {
-          var result1 = scrypt.hashSync(new Buffer("hash something"), {N:16, r:1, p:1}, hash_length, "NaCl");
+          var result1 = scrypt.hashSync(Buffer.from("hash something"), {N:16, r:1, p:1}, hash_length, "NaCl");
           expect(result1)
             .to.be.an.instanceof(Buffer);
           expect(result1)
             .to.have.length(hash_length);
 
-          var result2 = scrypt.hashSync("hash something", {N:16, r:1, p:1}, hash_length, new Buffer("NaCl"));
+          var result2 = scrypt.hashSync("hash something", {N:16, r:1, p:1}, hash_length, Buffer.from("NaCl"));
           expect(result2)
             .to.be.an.instanceof(Buffer);
           expect(result2)
@@ -760,7 +760,7 @@ describe("Scrypt Node Module Tests", function() {
 
       describe("Asynchronous", function() {
         it("Will be deterministic if salts are identical", function(done) {
-          scrypt.hash(new Buffer("hash something"), {N:16, r:1, p:1}, hash_length, "NaCl", function(err, result1) {
+          scrypt.hash(Buffer.from("hash something"), {N:16, r:1, p:1}, hash_length, "NaCl", function(err, result1) {
             expect(result1)
               .to.be.an.instanceof(Buffer);
             expect(result1)
@@ -768,7 +768,7 @@ describe("Scrypt Node Module Tests", function() {
             expect(err)
               .to.not.exist;
 
-            scrypt.hash("hash something", {N:16, r:1, p:1}, hash_length, new Buffer("NaCl"), function(err, result2) {
+            scrypt.hash("hash something", {N:16, r:1, p:1}, hash_length, Buffer.from("NaCl"), function(err, result2) {
               expect(result2)
                 .to.be.an.instanceof(Buffer);
               expect(result2)
