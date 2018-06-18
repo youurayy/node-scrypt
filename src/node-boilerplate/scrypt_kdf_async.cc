@@ -25,7 +25,7 @@ void ScryptKDFAsyncWorker::HandleOKCallback() {
         GetFromPersistent("ScryptPeristentObject")->ToObject()->Get(Nan::New("KDFResult").ToLocalChecked())
     };
 
-    callback->Call(2, argv);
+    callback->Call(2, argv, async_resource);
 }
 
 // Asynchronous access to scrypt params

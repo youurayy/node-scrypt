@@ -49,7 +49,7 @@ void ScryptHashAsyncWorker::HandleOKCallback() {
     GetFromPersistent("ScryptPeristentObject")->ToObject()->Get(Nan::New("HashBuffer").ToLocalChecked())
   };
 
-  callback->Call(2, argv);
+  callback->Call(2, argv, async_resource);
 }
 
 //

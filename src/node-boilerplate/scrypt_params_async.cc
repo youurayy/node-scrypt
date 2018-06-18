@@ -29,7 +29,7 @@ void ScryptParamsAsyncWorker::HandleOKCallback() {
     obj
   };
 
-  callback->Call(2, argv);
+  callback->Call(2, argv, async_resource);
 }
 
 // Asynchronous access to scrypt params
