@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [6.1.0] - 2018-06-18
+### Changed
+- Add range check for 'N' parameter by chrisveness
+
+### Fixed
+- Add bindings dependency by fanatid
+- Bugfix for `params()` and `paramsSync()` argument ordering of `maxmem` and `maxmemfrac` to match documentation by shanewholloway
+- Include order matters by zilti
+- Fixed issue with mixed up variables by lincolnanders5
+- Fix deprecated warnings when compiling
+- Fix broken error messages - overhaul
 
 ## [6.0.6] - 2018-06-18
 ### Fixed

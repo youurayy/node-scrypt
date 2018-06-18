@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/ml1nk/node-scrypt.svg?branch=master)](https://travis-ci.org/ml1nk/node-scrypt)
 [![npm version](https://badge.fury.io/js/%40mlink%2Fscrypt.svg)](https://badge.fury.io/js/%40mlink%2Fscrypt)
 
+This is a fork of [node-scrypt](https://github.com/barrysteyn/node-scrypt) from [barrysteyn](https://github.com/barrysteyn). It was updated to work with Node 10 and contains some additional bugfixes.
+
 Scrypt for Node/IO is a native node/io C++ wrapper for Colin Percival's
 [scrypt](https://www.tarsnap.com/scrypt.html) cryptographic hash utility.
 
@@ -14,7 +16,7 @@ as secure as possible.
 ## Node-Scrypt Version 6
 Version 6 is a major new release. It is by and large compatible with version 5.
  
-  * Scrypt version 1.2.0 is being used (a very recently released version of Scrypt)
+  * Scrypt version 1.2.1 is being used (a very recently released version of Scrypt)
   * Using Node's internal cryptographic libraries - for windows users, there is no need to use an external OpenSSL library anymore.
   * Using Node's OS module to check for freemem, meaning no need to use any system calls and therefore no external dependencies
 
