@@ -4,13 +4,13 @@
 .deps/ 
 .dirstamp 
 aclocal.m4 
-config.aux/ 
-config.h 
-config.log 
-config.status 
+/scrypt-1.2.1/config.aux/ 
+/scrypt-1.2.1/config.h 
+/scrypt-1.2.1/config.log 
+/scrypt-1.2.1/config.status 
 cpusupport-config.h 
 stamp-h1 
 Makefile 
 # Test infrastructure 
 # Standard out-of-tree build directory 
-build/ 
+build/
