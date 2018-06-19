@@ -160,7 +160,7 @@ This is the raw scrypt hash function.
 ## params
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 
 //Synchronous
 try {
@@ -187,7 +187,7 @@ scrypt.params(0.1).then(function(result){
 ## kdf
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 var scryptParameters = scrypt.paramsSync(0.1);
 var key = Buffer.from("this is a key"); //could also be a string
 
@@ -211,7 +211,7 @@ scrypt.kdf("ascii encoded key", {N: 1, r:1, p:1}).then(function(result){
 ## verifyKdf
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 var scryptParameters = scrypt.paramsSync(0.1);
 var kdfResult = scrypt.kdfSync("password", scryptParameters);
 
@@ -237,7 +237,7 @@ The [scrypt paper](http://www.tarsnap.com/scrypt/scrypt.pdf) lists four [test ve
 ### Test Vector 1
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 var key = Buffer.from("");
 
 //Synchronous
@@ -258,7 +258,7 @@ scrypt.hash(key, {"N":16,"r":1,"p":1},64,"").then(function(result) {
 ### Test Vector 2
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 var salt = Buffer.from("NaCl");
 
 //Synchronous
@@ -273,7 +273,7 @@ scrypt.hash("password", {"N":1024,"r":8,"p":16},64,salt, function(err, result) {
 ### Test Vector 3
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 var key = Buffer.from("pleaseletmein");
 var salt = Buffer.from("SodiumChloride");
 
@@ -291,7 +291,7 @@ scrypt.hash(key, {"N":16384,"r":8,"p":1}, 64, salt, function(err, result) {
 Note: This test vector is very taxing in terms of resources.
 
 ```JavaScript
-var scrypt = require("scrypt");
+var scrypt = require("@mlink/scrypt");
 
 //Synchronous
 var result = scrypt.hashSync("pleaseletmein",{"N":1048576,"r":8,"p":1},64,"SodiumChloride");
