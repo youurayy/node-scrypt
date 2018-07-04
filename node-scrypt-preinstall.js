@@ -18,5 +18,8 @@ if (OS.platform() !== "win32") {
 
   var configure = './configure';
 
-  exec(configure, {cwd: path + "/scrypt/scrypt-1.2.1"}, puts);
+  exec(configure, {cwd: path + "/scrypt/scrypt-1.2.1"}, puts)
+    .on('exit', function(code, signal) {
+      process.exit(code);
+    });
 }
