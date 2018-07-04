@@ -18,12 +18,12 @@ var OS = require("os")
   // var host = process.env.npm_config_target_arch; // npm_config_arch;
   // var configure = "./configure" + (host ? " --host=" + host : "");
 
-  console.dir(process.env);
+console.dir(process.env);
 
-  var configure = './configure';
+var configure = './configure';
 
-  exec(configure, {cwd: path + "/scrypt/scrypt-1.2.1"}, puts)
-    .on('exit', function(code, signal) {
-      setTimeout(function() { process.exit(code); }, 2000);
-    });
-}
+exec(configure, {cwd: path + "/scrypt/scrypt-1.2.1"}, puts)
+  .on('exit', function(code, signal) {
+    setTimeout(function() { process.exit(code); }, 2000);
+  });
+
