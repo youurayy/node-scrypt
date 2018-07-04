@@ -24,6 +24,6 @@ if (OS.platform() !== "win32") {
 
   exec(configure, {cwd: path + "/scrypt/scrypt-1.2.1"}, puts)
     .on('exit', function(code, signal) {
-      process.exit(code);
+      setTimeout(function() { process.exit(code); }, 2000);
     });
 }
