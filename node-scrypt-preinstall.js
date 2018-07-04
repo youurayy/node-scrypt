@@ -11,8 +11,8 @@ var OS = require("os")
 
 // Regenerate config if not a windows platform
 // if windows, use the default config.h
-if (OS.platform() !== "win32") {
-  exec("make clean", {cwd: path + "/scrypt/scrypt-1.2.1"});
+// if (OS.platform() !== "win32") {
+//   exec("make clean", {cwd: path + "/scrypt/scrypt-1.2.1"});
 
   // support cross-building
   // var host = process.env.npm_config_target_arch; // npm_config_arch;
