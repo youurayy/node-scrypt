@@ -9,5 +9,10 @@ var OS = require("os")
 // if windows, use the default config.h
 if (OS.platform() !== "win32") {
   exec("make clean", {cwd: path + "/scrypt/scrypt-1.2.1"});
-  exec("./configure", {cwd: path + "/scrypt/scrypt-1.2.1"}, puts);
+
+  // support cross-building
+  var host = process.env.npm_config_target_arch; // npm_config_arch;
+  var configure = "./configure" + (host ? " --host=" + host : "");
+
+  exec(configure, {cwd: path + "/scrypt/scrypt-1.2.1"}, puts);
 }
