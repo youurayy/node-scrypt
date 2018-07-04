@@ -3,7 +3,11 @@
 var OS = require("os")
   , path = require('path').dirname(require.main.filename)
   , exec = require('child_process').exec
-  , puts = function(error, stdout, stderr) { if (error) console.log("Error: " + error);};
+  , puts = function(error, stdout, stderr) {
+    if (stdout) console.log("Stdout: " + stdout);
+    if (stderr) console.log("Stderr: " + stderr);
+    if (error) console.log("Error: " + error);
+  };
 
 // Regenerate config if not a windows platform
 // if windows, use the default config.h
