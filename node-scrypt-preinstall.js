@@ -12,25 +12,19 @@ const exit = (code) => {
   setTimeout(function() { process.exit(code); }, 2000)
 }
 
-// Regenerate config if not a windows platform
-// if windows, use the default config.h (TODO no config.h is committed/available?)
+// Generate config if not on a Windows platform
 if (OS.platform() !== "win32") {
 
-  exec("make clean", {cwd: path + "/scrypt/scrypt-1.2.1"}, puts).on('exit', (code, signal) => {
-    if (code !== 0)
-      exit(code)
+  // support cross-building
+  const host = process.env.npm_config_target_arch // npm_config_arch;
+  const configure = "./configure" + (host ? " --host=" + host : "")
 
-    // support cross-building
-    const host = process.env.npm_config_target_arch // npm_config_arch;
-    const configure = "./configure" + (host ? " --host=" + host : "")
+  console.dir(process.env); // temporary
 
-    console.dir(process.env); // temporary
+  console.log(`running configure: ${configure}`)
 
-    console.log(`running configure: ${configure}`)
+  exec(configure, { cwd: `${path}/scrypt/scrypt-1.2.1` }, puts).on('exit', (code, signal) => {
+    exit(code)
+  })
 
-    exec(configure, { cwd: `${path}/scrypt/scrypt-1.2.1` }, puts).on('exit', (code, signal) => {
-      exit(code)
-    })
-
-  }) // make clean
 } // !== win32
