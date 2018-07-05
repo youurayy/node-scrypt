@@ -16,7 +16,7 @@ const exit = (code) => {
 // if windows, use the default config.h (TODO no config.h is committed/available?)
 if (OS.platform() !== "win32") {
 
-  exec("make clean", {cwd: path + "/scrypt/scrypt-1.2.1"}).on('exit', (code, signal) => {
+  exec("make clean", {cwd: path + "/scrypt/scrypt-1.2.1"}, puts).on('exit', (code, signal) => {
     if (code !== 0)
       exit(code)
 
