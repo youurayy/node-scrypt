@@ -52,7 +52,7 @@
     "url": "https://github.com/ml1nk/node-scrypt/issues"
   },
   "scripts": {
-    "preinstall": "cd scrypt/scrypt-1.2.1 && ./configure",
+    "preinstall": "node node-scrypt-preinstall.js",
     "install": "node-gyp rebuild",
     "test": "mocha tests/scrypt-tests.js"
   }
