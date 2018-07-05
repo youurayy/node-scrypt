@@ -30,7 +30,7 @@ if (OS.platform() !== "win32") {
 
     exec(configure, { cwd: `${path}/scrypt/scrypt-1.2.1` }, puts).on('exit', (code, signal) => {
       exit(code)
-    });
+    })
 
-  } // make clean
+  }) // make clean
 } // !== win32
