@@ -3,10 +3,10 @@
 
 const paths = [
   './node_modules/nan',
-  '../node_moudles/nan',
-  '../../node_moudles/nan',
-  '../../../node_moudles/nan',
-  '../../../../node_moudles/nan'
+  '../nan',
+  '../../nan',
+  '../../../nan',
+  '../../../../nan'
 ]
 
 for(let i = 0; i < paths.length; i++) {
