@@ -53,7 +53,7 @@
   },
   "scripts": {
     "preinstall": "node node-scrypt-preinstall.js",
-    "install": "node-gyp rebuild",
+    "install": "node-gyp rebuild --verbose",
     "test": "mocha tests/scrypt-tests.js"
   }
 }

@@ -120,7 +120,7 @@
         'scrypt_node.cc'
       ],
       'include_dirs': [
-        '<!(node -e "require(\'nan\')")',
+        '<!(node nan.js)',
         'src/util',
         'src/scryptwrapper/inc',
         'src/node-boilerplate/inc'
